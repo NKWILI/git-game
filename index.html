@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Workflow Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sound-controls">
+        <div class="sound-toggle active" id="sound-toggle">
+            <i class="fas fa-volume-up"></i>
+        </div>
+    </div>
+    
+    <header>
+        <h1>Git Workflow Visualizer</h1>
+        <p class="subtitle">Visualize Git commands and workflows with Linux-style commands and suggestions</p>
+        
+        <div class="scenario-selector">
+            <button class="scenario-btn active" id="local-scenario">Local Workflow</button>
+            <button class="scenario-btn" id="remote-scenario">Remote Repository</button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="area">
+            <h2 class="area-title">Working Directory</h2>
+            <div class="content" id="working-area">
+                <div class="empty-state">No files yet</div>
+            </div>
+        </div>
+        
+        <div class="area">
+            <h2 class="area-title">Staging Area</h2>
+            <div class="content" id="staging-area">
+                <div class="empty-state">No files staged</div>
+            </div>
+        </div>
+        
+        <div class="area">
+            <h2 class="area-title">Local Repository</h2>
+            <div class="content" id="local-repo">
+                <div class="empty-state">No commits yet</div>
+            </div>
+        </div>
+        
+        <div class="area">
+            <h2 class="area-title">Remote Repository</h2>
+            <div class="content" id="remote-repo">
+                <div class="empty-state">No pushed commits</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="command-interface">
+        <h2 class="command-title">Command Interface</h2>
+        <div class="command-input-container">
+            <div class="current-path">
+                <div class="path-segment">~</div>
+                <div class="path-segment active" id="current-dir">/</div>
+            </div>
+            <div class="input-wrapper">
+                <div class="command-prefix">$ git / linux</div>
+                <input type="text" id="command-input" placeholder="Enter command (e.g. touch file.txt, git init, git add .)" autocomplete="off" autofocus>
+            </div>
+            <div class="suggestions" id="suggestions">
+                <div class="suggestion">touch file.txt</div>
+                <div class="suggestion">git init</div>
+                <div class="suggestion">git add .</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
